@@ -112,6 +112,8 @@ def process(
     image.save(buffered, format="PNG")
     img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
 
+    os.remove(image_save_path)
+
     return ProcessResponse(
         image=img_str,
         parsed_content_list=str(parsed_content_list_str),
